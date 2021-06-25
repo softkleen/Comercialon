@@ -19,11 +19,10 @@ namespace Comercialon
             InitializeComponent();
         }
 
-     
+
 
         private void btnInserir_Click(object sender, EventArgs e)
-        {   
-                        
+        {
             // essa linha a seguir remove pontos e traços do cpf
             mskCpf.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
@@ -36,13 +35,22 @@ namespace Comercialon
             cliente.Inserir();
             Endereco endereco = new Endereco
                 (txtLogradouro.Text, txtNumero.Text, txtComplemento.Text
-                ,txtCep.Text, txtBairro.Text,txtCidade.Text,cmbTipo.Text,
-                txtEstado.Text,txtUf.Text );
+                , txtCep.Text, txtBairro.Text, txtCidade.Text, cmbTipo.Text,
+                txtEstado.Text, txtUf.Text);
             endereco.Inserir(cliente.Id);
+            txtID.Text = cliente.Id.ToString();
             MessageBox.Show("Cliente " + cliente.Id + " inserido.");
-            
-        }
+            LimpaCampos();
 
+        }
+        private void LimpaCampos() 
+        {
+            txtID.Clear();
+            txtNome.Clear();
+            mskCpf.Clear();
+            txtEmail.Clear();
+            txtTelefone.Clear();
+        }
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
             string email = txtEmail.Text;
@@ -51,7 +59,7 @@ namespace Comercialon
          @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
          @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
 
-            if (rg.IsMatch(email)) 
+            if (rg.IsMatch(email))
             {
                 btnInserir.Enabled = true;
             }
@@ -64,7 +72,7 @@ namespace Comercialon
 
         private void txtCep_TextChanged(object sender, EventArgs e)
         {
-            if (txtCep.Text.Length==8)
+            if (txtCep.Text.Length == 8)
             {
                 var cep = Cep.Obter(txtCep.Text);
                 txtBairro.Text = cep.Bairro;
@@ -74,18 +82,82 @@ namespace Comercialon
             }
         }
 
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
-            cliente.BuscarPorId(8);
-            var listaCli = Cliente.ListarTodos();
-
-            var listaEnd = Endereco.ListaEnderecos(int.Parse(txtID.Text), 0, 10);
-            foreach (var item in listaEnd)
+            if (button1.Text=="...")
             {
-                listBox1.Items.Add(item.IdCliente + " " + item.Logradouro);
+                txtID.ReadOnly = false;
+                txtID.Focus();
+                BloquearControles();
+                button1.Text = "Buscar";
             }
-            
+            else
+            {
+                txtID.ReadOnly = true;
+                txtNome.Focus();
+                DesbloquearControles();
+                button1.Text = "...";
+                Cliente cliente = new Cliente();
+                cliente.BuscarPorId(int.Parse(txtID.Text));
+                if (cliente.Id>0)
+                {
+                    txtNome.Text = cliente.Nome;
+                    txtEmail.Text = cliente.Email;
+                    txtTelefone.Text = cliente.Telefone;
+                    mskCpf.Text = cliente.Cpf;
+                    mskCpf.Enabled = false;
+                    chkAtivo.Checked = cliente.Ativo;
+                    chkAtivo.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Cliente não encontrado!");
+                }
+               
+            }
+        }
+
+        private void DesbloquearControles()
+        {
+            txtNome.Enabled = true;
+            txtEmail.Enabled = true;
+            txtTelefone.Enabled = true;
+            mskCpf.Enabled = true;
+        }
+
+        private void BloquearControles()
+        {
+            txtNome.Enabled = false;
+            txtEmail.Enabled = false;
+            txtTelefone.Enabled = false;
+            mskCpf.Enabled = false;
+        }
+
+        private void btnEditarAlterar_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();
+            cliente.Id = int.Parse(txtID.Text);
+            cliente.Nome = txtNome.Text;
+            cliente.Telefone = txtTelefone.Text;
+            cliente.Email = txtEmail.Text;
+            cliente.Ativo = chkAtivo.Checked;
+            if (cliente.Alterar())
+            {
+                MessageBox.Show("Cliente alterado com sucesso!");
+                LimpaCampos();
+            }
+            else
+            {
+                MessageBox.Show("Falha ao alterar o cliente!");
+            }
+
         }
     }
 }

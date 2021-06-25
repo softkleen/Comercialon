@@ -60,9 +60,25 @@ namespace Comercialon.Classes
                 Id = Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
-        public bool Alterar(int id) 
+        public bool Alterar() 
         {
-            return true;
+            string ativo = Ativo ? "1" : "0";
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "update clientes set " +
+                "nome = '"+Nome+"', email = '"+Email+"'," +
+                "telefone = '"+Telefone+"', " +
+                "ativo = "+ativo+" where id = "+ Id;
+            int ret = cmd.ExecuteNonQuery();
+            if (ret==1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+
         }
         public static List<Cliente> ListarTodos() 
         {

@@ -61,19 +61,26 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnEditarAlterar = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnInserir
             // 
-            this.btnInserir.Enabled = false;
-            this.btnInserir.Location = new System.Drawing.Point(46, 415);
+            this.btnInserir.FlatAppearance.BorderSize = 0;
+            this.btnInserir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnInserir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInserir.Image = global::Comercialon.Properties.Resources.Add;
+            this.btnInserir.Location = new System.Drawing.Point(30, 175);
             this.btnInserir.Name = "btnInserir";
-            this.btnInserir.Size = new System.Drawing.Size(75, 23);
-            this.btnInserir.TabIndex = 0;
-            this.btnInserir.Text = "Inserir";
+            this.btnInserir.Size = new System.Drawing.Size(75, 41);
+            this.btnInserir.TabIndex = 1;
+            this.btnInserir.Text = "&Inserir";
+            this.btnInserir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInserir.UseVisualStyleBackColor = true;
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
@@ -126,15 +133,16 @@
             // 
             this.txtID.Location = new System.Drawing.Point(22, 35);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(50, 20);
-            this.txtID.TabIndex = 2;
+            this.txtID.TabIndex = 4;
             // 
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(22, 74);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(200, 20);
-            this.txtNome.TabIndex = 2;
+            this.txtNome.TabIndex = 0;
             // 
             // txtEmail
             // 
@@ -149,15 +157,16 @@
             this.txtTelefone.Location = new System.Drawing.Point(233, 113);
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(96, 20);
-            this.txtTelefone.TabIndex = 2;
+            this.txtTelefone.TabIndex = 3;
             // 
             // chkAtivo
             // 
             this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Enabled = false;
             this.chkAtivo.Location = new System.Drawing.Point(279, 35);
             this.chkAtivo.Name = "chkAtivo";
             this.chkAtivo.Size = new System.Drawing.Size(50, 17);
-            this.chkAtivo.TabIndex = 3;
+            this.chkAtivo.TabIndex = 6;
             this.chkAtivo.Text = "Ativo";
             this.chkAtivo.UseVisualStyleBackColor = true;
             // 
@@ -167,10 +176,11 @@
             this.mskCpf.Mask = "000.000.000-99";
             this.mskCpf.Name = "mskCpf";
             this.mskCpf.Size = new System.Drawing.Size(100, 20);
-            this.mskCpf.TabIndex = 4;
+            this.mskCpf.TabIndex = 1;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.mskCpf);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.chkAtivo);
@@ -182,10 +192,10 @@
             this.groupBox1.Controls.Add(this.txtNome);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtID);
-            this.groupBox1.Location = new System.Drawing.Point(46, 29);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 161);
-            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Identificação";
             // 
@@ -209,7 +219,7 @@
             this.groupBox2.Controls.Add(this.txtLogradouro);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.cmbTipo);
-            this.groupBox2.Location = new System.Drawing.Point(46, 208);
+            this.groupBox2.Location = new System.Drawing.Point(380, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(351, 201);
             this.groupBox2.TabIndex = 6;
@@ -369,34 +379,56 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(439, 121);
+            this.button1.Location = new System.Drawing.Point(78, 33);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "...";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // listBox1
+            // btnEditarAlterar
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(439, 159);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(327, 121);
-            this.listBox1.TabIndex = 8;
+            this.btnEditarAlterar.Location = new System.Drawing.Point(111, 179);
+            this.btnEditarAlterar.Name = "btnEditarAlterar";
+            this.btnEditarAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditarAlterar.TabIndex = 2;
+            this.btnEditarAlterar.Text = "&Editar";
+            this.btnEditarAlterar.UseVisualStyleBackColor = true;
+            this.btnEditarAlterar.Click += new System.EventHandler(this.btnEditarAlterar_Click);
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(192, 179);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(75, 23);
+            this.btnListar.TabIndex = 3;
+            this.btnListar.Text = "&Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(273, 179);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "&Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnListar);
+            this.Controls.Add(this.btnEditarAlterar);
             this.Controls.Add(this.btnInserir);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -440,7 +472,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtUf;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnEditarAlterar;
+        private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
 

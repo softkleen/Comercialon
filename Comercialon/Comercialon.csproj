@@ -151,6 +151,9 @@
     <EmbeddedResource Include="Formularios\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmProdutos.resx">
+      <DependentUpon>FrmProdutos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -159,6 +162,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="comercialaondb.mwb" />
     <None Include="packages.config" />
@@ -178,6 +182,13 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="modelo_comercialon.png" />
+    <None Include="Resources\Add.ico" />
+    <None Include="Resources\Cancel.ico" />
+    <None Include="Resources\Delete.ico" />
+    <None Include="Resources\Edit.ico" />
+    <None Include="Resources\Home.ico" />
+    <None Include="Resources\Save.ico" />
+    <None Include="Resources\Search.ico" />
     <Content Include="script_mysql_comercialondb.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
