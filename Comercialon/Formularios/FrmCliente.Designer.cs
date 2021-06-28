@@ -41,6 +41,7 @@
             this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.mskCpf = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtUf = new System.Windows.Forms.TextBox();
@@ -60,12 +61,20 @@
             this.txtLogradouro = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnEditarAlterar = new System.Windows.Forms.Button();
             this.btnListar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnAtivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clnEndereco = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // btnInserir
@@ -198,6 +207,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Identificação";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(78, 33);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
             // 
@@ -377,16 +396,6 @@
             this.cmbTipo.Size = new System.Drawing.Size(121, 21);
             this.cmbTipo.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(78, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(63, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // btnEditarAlterar
             // 
             this.btnEditarAlterar.Location = new System.Drawing.Point(111, 179);
@@ -405,6 +414,7 @@
             this.btnListar.TabIndex = 3;
             this.btnListar.Text = "&Listar";
             this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // btnCancelar
             // 
@@ -415,11 +425,88 @@
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // dgvClientes
+            // 
+            this.dgvClientes.AllowUserToAddRows = false;
+            this.dgvClientes.AllowUserToDeleteRows = false;
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clnId,
+            this.clnNome,
+            this.clnCpf,
+            this.clnEmail,
+            this.clnTelefone,
+            this.clnAtivo,
+            this.clnEndereco});
+            this.dgvClientes.Location = new System.Drawing.Point(12, 238);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.RowHeadersVisible = false;
+            this.dgvClientes.Size = new System.Drawing.Size(707, 150);
+            this.dgvClientes.TabIndex = 7;
+            // 
+            // clnId
+            // 
+            this.clnId.Frozen = true;
+            this.clnId.HeaderText = "ID";
+            this.clnId.Name = "clnId";
+            this.clnId.ReadOnly = true;
+            this.clnId.Width = 40;
+            // 
+            // clnNome
+            // 
+            this.clnNome.Frozen = true;
+            this.clnNome.HeaderText = "Nome";
+            this.clnNome.Name = "clnNome";
+            this.clnNome.ReadOnly = true;
+            this.clnNome.Width = 150;
+            // 
+            // clnCpf
+            // 
+            this.clnCpf.Frozen = true;
+            this.clnCpf.HeaderText = "CPF";
+            this.clnCpf.Name = "clnCpf";
+            this.clnCpf.ReadOnly = true;
+            this.clnCpf.Width = 90;
+            // 
+            // clnEmail
+            // 
+            this.clnEmail.Frozen = true;
+            this.clnEmail.HeaderText = "Email";
+            this.clnEmail.Name = "clnEmail";
+            this.clnEmail.ReadOnly = true;
+            this.clnEmail.Width = 140;
+            // 
+            // clnTelefone
+            // 
+            this.clnTelefone.Frozen = true;
+            this.clnTelefone.HeaderText = "Telefone";
+            this.clnTelefone.Name = "clnTelefone";
+            this.clnTelefone.ReadOnly = true;
+            this.clnTelefone.Width = 90;
+            // 
+            // clnAtivo
+            // 
+            this.clnAtivo.Frozen = true;
+            this.clnAtivo.HeaderText = "Ativo";
+            this.clnAtivo.Name = "clnAtivo";
+            this.clnAtivo.Width = 40;
+            // 
+            // clnEndereco
+            // 
+            this.clnEndereco.Frozen = true;
+            this.clnEndereco.HeaderText = "End. Principal";
+            this.clnEndereco.Name = "clnEndereco";
+            this.clnEndereco.ReadOnly = true;
+            this.clnEndereco.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clnEndereco.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clnEndereco.Width = 130;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
@@ -433,6 +520,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -475,6 +563,14 @@
         private System.Windows.Forms.Button btnEditarAlterar;
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridView dgvClientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnNome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnCpf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnTelefone;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clnAtivo;
+        private System.Windows.Forms.DataGridViewComboBoxColumn clnEndereco;
     }
 }
 

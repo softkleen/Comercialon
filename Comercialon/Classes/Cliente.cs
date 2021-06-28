@@ -62,12 +62,12 @@ namespace Comercialon.Classes
         }
         public bool Alterar() 
         {
-            string ativo = Ativo ? "1" : "0";
+            //string ativo = Ativo ? "1" : "0";
             var cmd = Banco.Abrir();
             cmd.CommandText = "update clientes set " +
                 "nome = '"+Nome+"', email = '"+Email+"'," +
                 "telefone = '"+Telefone+"', " +
-                "ativo = "+ativo+" where id = "+ Id;
+                "ativo = "+Ativo+" where id = "+ Id;
             int ret = cmd.ExecuteNonQuery();
             if (ret==1)
             {
