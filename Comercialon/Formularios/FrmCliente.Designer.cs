@@ -71,10 +71,14 @@
             this.clnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnAtivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.clnEndereco = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgvEndereco = new System.Windows.Forms.DataGridView();
+            this.clnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDadosEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).BeginInit();
             this.SuspendLayout();
             // 
             // btnInserir
@@ -436,13 +440,14 @@
             this.clnCpf,
             this.clnEmail,
             this.clnTelefone,
-            this.clnAtivo,
-            this.clnEndereco});
+            this.clnAtivo});
             this.dgvClientes.Location = new System.Drawing.Point(12, 238);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.RowHeadersVisible = false;
-            this.dgvClientes.Size = new System.Drawing.Size(707, 150);
+            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClientes.Size = new System.Drawing.Size(568, 150);
             this.dgvClientes.TabIndex = 7;
+            this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
             // 
             // clnId
             // 
@@ -491,21 +496,52 @@
             this.clnAtivo.Name = "clnAtivo";
             this.clnAtivo.Width = 40;
             // 
-            // clnEndereco
+            // dgvEndereco
             // 
-            this.clnEndereco.Frozen = true;
-            this.clnEndereco.HeaderText = "End. Principal";
-            this.clnEndereco.Name = "clnEndereco";
-            this.clnEndereco.ReadOnly = true;
-            this.clnEndereco.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clnEndereco.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clnEndereco.Width = 130;
+            this.dgvEndereco.AllowUserToAddRows = false;
+            this.dgvEndereco.AllowUserToDeleteRows = false;
+            this.dgvEndereco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEndereco.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clnTipo,
+            this.clnCep,
+            this.clnDadosEndereco});
+            this.dgvEndereco.Location = new System.Drawing.Point(12, 395);
+            this.dgvEndereco.Name = "dgvEndereco";
+            this.dgvEndereco.ReadOnly = true;
+            this.dgvEndereco.RowHeadersVisible = false;
+            this.dgvEndereco.Size = new System.Drawing.Size(568, 93);
+            this.dgvEndereco.TabIndex = 8;
+            // 
+            // clnTipo
+            // 
+            this.clnTipo.Frozen = true;
+            this.clnTipo.HeaderText = "Tipo";
+            this.clnTipo.Name = "clnTipo";
+            this.clnTipo.ReadOnly = true;
+            this.clnTipo.Width = 80;
+            // 
+            // clnCep
+            // 
+            this.clnCep.Frozen = true;
+            this.clnCep.HeaderText = "CEP";
+            this.clnCep.Name = "clnCep";
+            this.clnCep.ReadOnly = true;
+            this.clnCep.Width = 80;
+            // 
+            // clnDadosEndereco
+            // 
+            this.clnDadosEndereco.Frozen = true;
+            this.clnDadosEndereco.HeaderText = "Endereço";
+            this.clnDadosEndereco.Name = "clnDadosEndereco";
+            this.clnDadosEndereco.ReadOnly = true;
+            this.clnDadosEndereco.Width = 408;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 566);
+            this.Controls.Add(this.dgvEndereco);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -521,6 +557,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEndereco)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -570,7 +607,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnTelefone;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clnAtivo;
-        private System.Windows.Forms.DataGridViewComboBoxColumn clnEndereco;
+        private System.Windows.Forms.DataGridView dgvEndereco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnTipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnCep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnDadosEndereco;
     }
 }
 

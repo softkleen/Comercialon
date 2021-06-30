@@ -75,6 +75,7 @@ namespace Comercialon
         {
             if (txtCep.Text.Length == 8)
             {
+
                 var cep = Cep.Obter(txtCep.Text);
                 txtBairro.Text = cep.Bairro;
                 txtCidade.Text = cep.Localidade;
@@ -176,11 +177,14 @@ namespace Comercialon
                 dgvClientes.Rows[dgvClientes.Rows.Count - 1].Cells[3].Value = item.Email;
                 dgvClientes.Rows[dgvClientes.Rows.Count - 1].Cells[4].Value = item.Telefone;
                 dgvClientes.Rows[dgvClientes.Rows.Count - 1].Cells[5].Value = item.Ativo;
-                var enderecos = item.Enderecos;
-
-                dgvClientes.Rows[dgvClientes.Rows.Count - 1].Cells[6].Value = item.Enderecos;
+  
 
             }
+        }
+
+        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
