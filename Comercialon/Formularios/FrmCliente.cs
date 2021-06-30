@@ -184,6 +184,84 @@ namespace Comercialon
 
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            dgvEndereco.Rows.Clear(); // limpar o datagrid
+            int idCli = Convert.ToInt32(dgvClientes.Rows[e.RowIndex].Cells[0].Value);
+            var listaEnd = Endereco.ListaEnderecos(idCli);
+            if (listaEnd.Count>0)
+            {
+                foreach (var item in listaEnd)
+                    {
+                        dgvEndereco.Rows.Add();
+                        dgvEndereco.Rows[dgvEndereco.Rows.Count - 1].Cells[0].Value = item.Tipo;
+                        dgvEndereco.Rows[dgvEndereco.Rows.Count - 1].Cells[1].Value = item.Cep;
+                        StringBuilder endereco = new StringBuilder();
+                        endereco.Append(item.Logradouro);
+                        endereco.Append(", " + item.Numero);
+                        endereco.Append(" - " + item.Bairro);
+                        dgvEndereco.Rows[dgvEndereco.Rows.Count - 1].Cells[2].Value = endereco;
+                    }
+            }
+            else
+            {   dgvEndereco.Rows.Add();
+                string mensagem = "Não há endereços cadastrados";
+                dgvEndereco.Rows[dgvEndereco.Rows.Count - 1].Cells[2].Value = mensagem;
+            }
+           
+        }
+
+        private void dgvClientes_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvClientes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int linha = dgvClientes.CurrentRow.Index;
+            if (e.KeyChar == 40)// seta pra baixo
+            {
+                
+            }
+            if (e.KeyChar == 38)// seta pra cima
+            {
+
+            }
+        }
+
+        private void dgvClientes_KeyDown(object sender, KeyEventArgs e)
+        {
+            int linha = 0;
+            if (e.KeyCode==Keys.Down && dgvClientes.CurrentRow.Index + 1 < dgvClientes.Rows.Count )
+            {
+                linha = dgvClientes.CurrentRow.Index + 1;
+            }
+            if (e.KeyCode==Keys.Up && dgvClientes.CurrentRow.Index>0)
+            {
+                linha = dgvClientes.CurrentRow.Index - 1;
+            }
+            dgvEndereco.Rows.Clear(); // limpar o datagrid
+            int idCli = Convert.ToInt32(dgvClientes.Rows[linha].Cells[0].Value);
+            var listaEnd = Endereco.ListaEnderecos(idCli);
+            if (listaEnd.Count > 0)
+            {
+                foreach (var item in listaEnd)
+                {
+                    dgvEndereco.Rows.Add();
+                    dgvEndereco.Rows[dgvEndereco.Rows.Count - 1].Cells[0].Value = item.Tipo;
+                    dgvEndereco.Rows[dgvEndereco.Rows.Count - 1].Cells[1].Value = item.Cep;
+                    StringBuilder endereco = new StringBuilder();
+                    endereco.Append(item.Logradouro);
+                    endereco.Append(", " + item.Numero);
+                    endereco.Append(" - " + item.Bairro);
+                    dgvEndereco.Rows[dgvEndereco.Rows.Count - 1].Cells[2].Value = endereco;
+                }
+            }
+            else
+            {
+                dgvEndereco.Rows.Add();
+                string mensagem = "Não há endereços cadastrados";
+                dgvEndereco.Rows[dgvEndereco.Rows.Count - 1].Cells[2].Value = mensagem;
+            }
+
 
         }
     }

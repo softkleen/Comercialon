@@ -448,6 +448,8 @@
             this.dgvClientes.Size = new System.Drawing.Size(568, 150);
             this.dgvClientes.TabIndex = 7;
             this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
+            this.dgvClientes.SelectionChanged += new System.EventHandler(this.dgvClientes_SelectionChanged);
+            this.dgvClientes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvClientes_KeyDown);
             // 
             // clnId
             // 
@@ -549,6 +551,7 @@
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.btnEditarAlterar);
             this.Controls.Add(this.btnInserir);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
