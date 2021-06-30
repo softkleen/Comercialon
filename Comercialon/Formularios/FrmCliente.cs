@@ -36,7 +36,7 @@ namespace Comercialon
             Endereco endereco = new Endereco
                 (txtLogradouro.Text, txtNumero.Text, txtComplemento.Text
                 , txtCep.Text, txtBairro.Text, txtCidade.Text, cmbTipo.Text,
-                txtEstado.Text, txtUf.Text);
+                 txtUf.Text);
             endereco.Inserir(cliente.Id);
             txtID.Text = cliente.Id.ToString();
             MessageBox.Show("Cliente " + cliente.Id + " inserido.");
@@ -122,7 +122,6 @@ namespace Comercialon
                 {
                     MessageBox.Show("Cliente não encontrado!");
                 }
-               
             }
         }
 
@@ -211,35 +210,8 @@ namespace Comercialon
 
         private void dgvClientes_SelectionChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void dgvClientes_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            int linha = dgvClientes.CurrentRow.Index;
-            if (e.KeyChar == 40)// seta pra baixo
-            {
-                
-            }
-            if (e.KeyChar == 38)// seta pra cima
-            {
-
-            }
-        }
-
-        private void dgvClientes_KeyDown(object sender, KeyEventArgs e)
-        {
-            int linha = 0;
-            if (e.KeyCode==Keys.Down && dgvClientes.CurrentRow.Index + 1 < dgvClientes.Rows.Count )
-            {
-                linha = dgvClientes.CurrentRow.Index + 1;
-            }
-            if (e.KeyCode==Keys.Up && dgvClientes.CurrentRow.Index>0)
-            {
-                linha = dgvClientes.CurrentRow.Index - 1;
-            }
             dgvEndereco.Rows.Clear(); // limpar o datagrid
-            int idCli = Convert.ToInt32(dgvClientes.Rows[linha].Cells[0].Value);
+            int idCli = Convert.ToInt32(dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[0].Value);
             var listaEnd = Endereco.ListaEnderecos(idCli);
             if (listaEnd.Count > 0)
             {
@@ -263,6 +235,25 @@ namespace Comercialon
             }
 
 
+        }
+
+        private void dgvClientes_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+        }
+
+        private void btnNovoEndereco_Click(object sender, EventArgs e)
+        {
+            Endereco endereco = new Endereco
+              (txtLogradouro.Text, txtNumero.Text, txtComplemento.Text
+              , txtCep.Text, txtBairro.Text, txtCidade.Text, cmbTipo.Text,
+               txtUf.Text);
+            int idCli = Convert.ToInt32(dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[0].Value);
+            endereco.Inserir(idCli);
+            txtID.Text = idCli.ToString();
+            MessageBox.Show("Novo endereço adicionado para " + idCli + " inserido.");
+            LimpaCampos();
+            btnListar_Click(sender, e);
         }
     }
 }

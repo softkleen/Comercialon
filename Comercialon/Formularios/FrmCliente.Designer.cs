@@ -45,8 +45,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtUf = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtEstado = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtCep = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -75,6 +73,7 @@
             this.clnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnDadosEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNovoEndereco = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -224,10 +223,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnNovoEndereco);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.txtUf);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.txtEstado);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.txtCep);
             this.groupBox2.Controls.Add(this.label11);
@@ -244,7 +242,7 @@
             this.groupBox2.Controls.Add(this.cmbTipo);
             this.groupBox2.Location = new System.Drawing.Point(380, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(351, 201);
+            this.groupBox2.Size = new System.Drawing.Size(342, 201);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Endreços";
@@ -252,7 +250,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(277, 147);
+            this.label14.Location = new System.Drawing.Point(187, 147);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(21, 13);
             this.label14.TabIndex = 17;
@@ -260,26 +258,10 @@
             // 
             // txtUf
             // 
-            this.txtUf.Location = new System.Drawing.Point(279, 163);
+            this.txtUf.Location = new System.Drawing.Point(189, 163);
             this.txtUf.Name = "txtUf";
             this.txtUf.Size = new System.Drawing.Size(50, 20);
             this.txtUf.TabIndex = 16;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(187, 147);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 13);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "Estado";
-            // 
-            // txtEstado
-            // 
-            this.txtEstado.Location = new System.Drawing.Point(189, 163);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(85, 20);
-            this.txtEstado.TabIndex = 14;
             // 
             // label12
             // 
@@ -538,6 +520,16 @@
             this.clnDadosEndereco.ReadOnly = true;
             this.clnDadosEndereco.Width = 408;
             // 
+            // btnNovoEndereco
+            // 
+            this.btnNovoEndereco.Location = new System.Drawing.Point(254, 160);
+            this.btnNovoEndereco.Name = "btnNovoEndereco";
+            this.btnNovoEndereco.Size = new System.Drawing.Size(75, 23);
+            this.btnNovoEndereco.TabIndex = 18;
+            this.btnNovoEndereco.Text = "Novo";
+            this.btnNovoEndereco.UseVisualStyleBackColor = true;
+            this.btnNovoEndereco.Click += new System.EventHandler(this.btnNovoEndereco_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -583,8 +575,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbTipo;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtCep;
         private System.Windows.Forms.Label label11;
@@ -614,6 +604,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCep;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDadosEndereco;
+        private System.Windows.Forms.Button btnNovoEndereco;
     }
 }
 

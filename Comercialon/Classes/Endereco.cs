@@ -16,14 +16,13 @@ namespace Comercialon.Classes
         public string Cep { get; set; }
         public string Bairro { get; set; }
         public string Cidade { get; set; }
-        public string Estado { get; set; }
-        public string SiglaEstado { get; set; }
+        public string Uf { get; set; }
         public string Tipo { get; set; }
         public Endereco()
         {
         }
 
-        public Endereco(int idCliente, string logradouro, string numero, string complemento, string cep, string bairro, string cidade, string estado, string siglaEstado, string tipo)
+        public Endereco(int idCliente, string logradouro, string numero, string complemento, string cep, string bairro, string cidade, string uf, string tipo)
         {
             this.idCliente = idCliente;
             Logradouro = logradouro;
@@ -32,12 +31,11 @@ namespace Comercialon.Classes
             Cep = cep;
             Bairro = bairro;
             Cidade = cidade;
-            Estado = estado;
-            SiglaEstado = siglaEstado;
+            Uf = uf;
             Tipo = tipo;
         }
 
-        public Endereco(string logradouro, string numero, string complemento, string cep, string bairro, string cidade, string tipo,string estado=null, string siglaEstado=null)
+        public Endereco(string logradouro, string numero, string complemento, string cep, string bairro, string cidade, string tipo, string uf=null)
         {
             Logradouro = logradouro;
             Numero = numero;
@@ -46,8 +44,7 @@ namespace Comercialon.Classes
             Bairro = bairro;
             Cidade = cidade;
             Tipo = tipo;
-            Estado = estado;
-            SiglaEstado = siglaEstado;
+            Uf = uf;
         }
         public void Inserir(int idCliente) 
         {
@@ -59,8 +56,7 @@ namespace Comercialon.Classes
                 "'"+Complemento+"'," +
                 "'"+Bairro+"', " +
                 "'"+Cidade+"'," +
-                "'"+Estado+"'," +
-                "'"+SiglaEstado+"'," +
+                "'"+Uf+"'," +
                 "'"+Tipo+"')";
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
@@ -100,8 +96,7 @@ namespace Comercialon.Classes
                     dr.GetString(5),
                     dr.GetString(6),
                     dr.GetString(7),
-                    dr.GetString(8),
-                    dr.GetString(9)
+                    dr.GetString(8)
                     ));
             }
             return lista;
