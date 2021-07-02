@@ -57,8 +57,7 @@
 --  `numero` VARCHAR(45) NOT NULL,
 --  `complemento` VARCHAR(45) NULL,
 --  `bairro` VARCHAR(45) NOT NULL,
---  `cidade` VARCHAR(45) NOT NULL,
---  `uf` CHAR(2) NOT NULL,
+--
 --  `tipo` VARCHAR(45) NOT NULL,
 --  INDEX `fk_Enderecos_Clientes1_idx` (`Clientes_id` ASC) ,
 --  CONSTRAINT `fk_Enderecos_Clientes1`

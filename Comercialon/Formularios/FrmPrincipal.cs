@@ -30,5 +30,12 @@ namespace Comercialon.Formularios
             frmProdutos.MdiParent = this;
             frmProdutos.Show();
         }
+
+        private void novoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPedidos pedidos = new FrmPedidos();
+            pedidos.MdiParent = this;
+            pedidos.Show();
+        }
     }
 }

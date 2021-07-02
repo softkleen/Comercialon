@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Comercialon.Classes
 {
-    class Usuario
+    public class Usuario
     {
         // propriedades
         /*
